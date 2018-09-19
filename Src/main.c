@@ -105,10 +105,13 @@ int main(void)
   /* USER CODE END WHILE */
 
   /* USER CODE BEGIN 3 */
-	HAL_GPIO_WritePin(GPIOE, 1<<9, 1);
-	for (uint32_t i = 0xffff; i; i--);
-	HAL_GPIO_WritePin(GPIOE, 1<<9, 0);
-	for (uint32_t i = 0xffff; i; i--);
+		for (uint32_t count = 8; count < 16; count++)
+		{
+			HAL_GPIO_WritePin(GPIOE, 1 << count, 1);
+			for (uint32_t i = 0xfffff5; i; i--);
+			HAL_GPIO_WritePin(GPIOE, 1 << count, 0);
+			for (uint32_t i = 0xfffff5; i; i--);
+		}
 
   }
   /* USER CODE END 3 */
@@ -191,8 +194,9 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOE, CS_I2C_SPI_Pin|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11 
-                          |GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOE, CS_I2C_SPI_Pin|LD4_Pin|LD3_Pin|LD5_Pin 
+                          |LD7_Pin|LD9_Pin|LD10_Pin|LD8_Pin 
+                          |LD6_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : DRDY_Pin MEMS_INT3_Pin MEMS_INT4_Pin MEMS_INT1_Pin 
                            MEMS_INT2_Pin */
@@ -202,10 +206,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : CS_I2C_SPI_Pin PE9 PE10 PE11 
-                           PE12 PE13 PE14 PE15 */
-  GPIO_InitStruct.Pin = CS_I2C_SPI_Pin|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_11 
-                          |GPIO_PIN_12|GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
+  /*Configure GPIO pins : CS_I2C_SPI_Pin LD4_Pin LD3_Pin LD5_Pin 
+                           LD7_Pin LD9_Pin LD10_Pin LD8_Pin 
+                           LD6_Pin */
+  GPIO_InitStruct.Pin = CS_I2C_SPI_Pin|LD4_Pin|LD3_Pin|LD5_Pin 
+                          |LD7_Pin|LD9_Pin|LD10_Pin|LD8_Pin 
+                          |LD6_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

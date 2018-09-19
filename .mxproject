@@ -1,7 +1,7 @@
 [PreviousGenFiles]
-HeaderPath=C:/projects/embedded_C_course/current_home_task/exercise_1/Inc
+HeaderPath=C:/projects/embedded_C_course/current_task2/exercise_1_2/Inc
 HeaderFiles=stm32f3xx_it.h;stm32f3xx_hal_conf.h;main.h;
-SourcePath=C:/projects/embedded_C_course/current_home_task/exercise_1/Src
+SourcePath=C:/projects/embedded_C_course/current_task2/exercise_1_2/Src
 SourceFiles=stm32f3xx_it.c;stm32f3xx_hal_msp.c;main.c;
 
 [PreviousLibFiles]
